@@ -1,0 +1,24 @@
+class Solution {
+    vector<int> ans;
+    int stepCount(int n,vector<int> &ans){
+        if(n<=2){
+            ans[n]=n;
+             return n;
+        }
+        if(ans[n] != -1){
+            return ans[n];
+        }
+        
+        ans[n]=stepCount(n-1,ans)+stepCount(n-2,ans);
+
+        return ans[n];
+    }
+public:
+    int climbStairs(int n) {
+        if(n<=2)return n;
+       vector<int> ans(n+1,-1);
+       
+
+        return stepCount(n,ans);
+    }
+};
